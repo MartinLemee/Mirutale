@@ -1,2 +1,2 @@
 # Mirutale
-Fan-made combat with UNITALE (Undertale combat system)
+Fan-made battle with UNITALE (Undertale combat system)
