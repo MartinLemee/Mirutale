@@ -3,7 +3,8 @@
 music = "battle" --Always OGG. Extension is added automatically. Remove the first two lines for custom music.
 encountertext = "Miru is really angry" --Modify as necessary. It will only be read out in the action select screen.
 nextwaves = {"blank"}
-current_attacks = {"blank"}-- A custom list with attacks to choose from. Actual selection happens in EnemyDialogueEnding(). Put here in case you want to use it.
+current_attacks = {"blank"} -- A custom list with attacks to choose from. Actual selection happens in EnemyDialogueEnding(). Put here in case you want to use it.
+pink_heart = false; -- Boolean i use in order to set the gravity or not
 wavetimer = 4.0
 arenasize = {155, 130}
 SetGlobal("intro", true)
@@ -56,6 +57,11 @@ function EnemyDialogueStarting()
     enemies[1].SetVar('dialogbubble', 'rightwide')
     enemies[1].SetVar('currentdialogue', 'Youki, attaque !!!')
     current_attacks = {"youki_firing"}
+
+  elseif ( turn == 3 ) then
+    enemies[1].SetVar('dialogbubble', 'rightwide')
+    enemies[1].SetVar('currentdialogue', 'Tu fera moins\nle malin quand tu\nsera mort !!!\nXD nya')
+    current_attacks = {"bullettest_touhou"}
   end
 
 
@@ -65,7 +71,11 @@ function EnemyDialogueEnding()
     --Audio.Play();
     -- Good location to fill the 'nextwaves' table with the attacks you want to have simultaneously.
     -- This example line below takes a random attack from 'possible_attacks'.
-    nextwaves = { current_attacks[math.random(#current_attacks)] }
+    if (pink_heart == true) then
+      nextwaves = { current_attacks[math.random(#current_attacks)], "gravity" }
+    else
+      nextwaves = { current_attacks[math.random(#current_attacks)] }
+    end
 
 
 end
