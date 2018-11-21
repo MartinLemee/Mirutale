@@ -44,8 +44,14 @@ function EnemyDialogueStarting()
     --  SetGlobal("intro", false) -- sets the variable "intro" to false so that this line of dialogue only plays once
   --  end
 
-  local turn = GetGlobal("attackNum")
+
+
+  pink_heart = true;
+  current_attacks = {"lapin_run"}
+
+  --[[local turn = GetGlobal("attackNum")
   if ( turn == 1 ) then
+
     -- You can set the dialog bubble Here
     enemies[1].SetVar('dialogbubble', 'rightwide')
     -- Dialog for the turn 1
@@ -62,7 +68,7 @@ function EnemyDialogueStarting()
     enemies[1].SetVar('dialogbubble', 'rightwide')
     enemies[1].SetVar('currentdialogue', 'Tu fera moins\nle malin quand tu\nsera mort !!!\nXD nya')
     current_attacks = {"bullettest_touhou"}
-  end
+  end]]
 
 
 end
